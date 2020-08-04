@@ -1,16 +1,11 @@
 import express from "express";
+import routes from "./routes";
 
 const app = express();
 
-app.use(express.json);
+app.use(express.json());
+app.use(routes);
 
-app.get('/users', (request, response) => {
-  const users = [
-    { name: "Vinicius", age: 25 },
-    { name: "Andressa", age: 21 },
-  ];
-
-  return response.json(users);
+app.listen(3333, () => {
+  console.log('Server Started!');
 });
-
-app.listen(3333);
